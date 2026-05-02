@@ -1,0 +1,12 @@
+{
+  "sales": [
+    {"user_id": 1, "name": "Анна", "product": "ноутбук", "price": 75000, "city": "Москва"},
+    {"user_id": 2, "name": "Иван", "product": "мышь", "price": 1500, "city": "СПб"},
+    {"user_id": 3, "name": "Мария", "product": "клавиатура", "price": 3500, "city": "Москва"},
+    {"user_id": 1, "name": "Анна", "product": "монитор", "price": 25000, "city": "Москва"},
+    {"user_id": 4, "name": "Олег", "product": "ноутбук", "price": 82000, "city": "Казань"},
+    {"user_id": 2, "name": "Иван", "product": "наушники", "price": 2800, "city": "СПб"},
+    {"user_id": 3, "name": "Мария", "product": "веб-камера", "price": 4200, "city": "Москва"},
+    {"user_id": 5, "name": "Елена", "product": "мышь", "price": 1200, "city": "Новосибирск"}
+  ]
+}
