@@ -1,0 +1,56 @@
+SELECT
+    COUNT(*) AS rows_count,
+    COUNT(DISTINCT call_id) AS unique_calls,
+    COUNT(DISTINCT client_id) AS unique_clients,
+    MIN(call_time) AS min_call_time,
+    MAX(call_time) AS max_call_time,
+    AVG(duration_sec) AS avg_duration_sec,
+    SUM(CASE WHEN follow_up_required THEN 1 ELSE 0 END) AS follow_up_count
+FROM transactions_v2;
+
+SELECT
+    call_status,
+    COUNT(*) AS calls_count,
+    AVG(duration_sec) AS avg_duration_sec
+FROM transactions_v2
+GROUP BY call_status
+ORDER BY calls_count DESC;
+
+SELECT
+    campaign_type,
+    COUNT(*) AS calls_count,
+    SUM(CASE WHEN follow_up_required THEN 1 ELSE 0 END) AS follow_up_count,
+    AVG(duration_sec) AS avg_duration_sec
+FROM transactions_v2
+GROUP BY campaign_type
+ORDER BY calls_count DESC;
+
+SELECT
+    region_code,
+    COUNT(*) AS calls_count,
+    COUNT(DISTINCT client_id) AS unique_clients,
+    AVG(duration_sec) AS avg_duration_sec
+FROM transactions_v2
+GROUP BY region_code
+ORDER BY calls_count DESC;
+
+SELECT
+    client_response,
+    COUNT(*) AS responses_count
+FROM transactions_v2
+GROUP BY client_response
+ORDER BY responses_count DESC;
+
+SELECT
+    call_id,
+    call_time,
+    client_id,
+    region_code,
+    campaign_type,
+    call_status,
+    client_response,
+    duration_sec,
+    follow_up_required
+FROM transactions_v2
+ORDER BY call_time
+LIMIT 20;
